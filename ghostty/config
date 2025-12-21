@@ -1,0 +1,12 @@
+theme = Catppuccin Frappe
+font-family = "GeistMono Nerd Font"
+font-feature = -liga
+
+background-opacity = 0.95
+
+window-padding-balance = true
+adjust-cell-height = 15%
+
+keybind = cmd+backspace=text:\x15
+
+window-colorspace = "display-p3"
