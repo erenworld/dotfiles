@@ -8,13 +8,12 @@ return {
   config = function()
     require("nvim-tree").setup({})
 
-    -- On utilise <leader>e pour ouvrir/fermer l'explorateur
+    -- <leader>e
     vim.keymap.set(
       "n",
       "<leader>e",
       "<cmd>NvimTreeFindFileToggle<CR>",
-      { desc = "Ouverture/fermeture de l'explorateur de fichiers" }
+      { desc = "ouverture/fermeture de l'explorateur de fichiers" }
     )
   end,
 }
-

@@ -4,10 +4,8 @@ return {
     "mason-org/mason-lspconfig.nvim",
   },
   config = function()
-    -- import de mason
+    -- import mason 
     local mason = require("mason")
-
-    -- import de mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
 
     -- Active mason et personnalise les icônes
@@ -23,32 +21,38 @@ return {
 
     mason_lspconfig.setup({
       automatic_enable = true,
-      -- Liste des serveurs à installer par défaut
-      -- List des serveurs possibles : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-      -- Vous pouvez ne pas en mettre ici et tout installer en utilisant :Mason
-      -- Mais au lieu de passer par :Mason pour installer, je vous recommande d'ajouter une entrée à cette liste
-      -- Ça permettra à votre configuration d'être plus portable
       ensure_installed = {
-        -- Go
-        "gopls",
-
-        -- TypeScript / JavaScript
-        "ts_ls", -- ex tsserver
-        "eslint",
-
-        -- Web
-        "html",
+        -- Web / misc
         "cssls",
-        "jsonls",
-
-        -- DevOps / Infra
+        "elmls",
+        "graphql",
+        "html",
+        "lua_ls",
+        "pylsp",
+        "ruff",
+        "sqlls",
+        "svelte",
+        "ts_ls",
         "yamlls",
+
+        -- Rust
+        "rust_analyzer",
+
+        -- C / C++
+        "clangd",
+
+        -- Bash / shell
+        "bashls",
+
+        -- Docker
         "dockerls",
         "docker_compose_language_service",
-        "terraformls",
 
-        -- Lua (Neovim)
-        "lua_ls",
+        -- TOML (Cargo.toml)
+        "taplo",
+
+        -- JSON
+        "jsonls",
       },
     })
   end,

@@ -7,38 +7,23 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        -- Web
         css = { "prettier" },
+        elm = { "elm_format" },
         graphql = { "prettier" },
-        html = { "prettier" },
         json = { "prettier" },
+        html = { "prettier" },
         liquid = { "prettier" },
+        lua = { "stylua" },
         markdown = { "prettier" },
+        python = { "ruff_fix", "ruff_format" },
+        rust = { "rustfmt" },
         svelte = { "prettier" },
-        yaml = { "prettier" },
-
-        -- JS / TS
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
-
-        -- Lua
-        lua = { "stylua" },
-
-        -- Python
-        python = { "ruff_fix", "ruff_format" },
-
-        -- Rust
-        rust = { "rustfmt" },
-
-        -- Go
-        go = { "goimports", "gofmt" },
-
-        -- Elm
-        elm = { "elm_format" },
+        yaml = { "prettier" },
       },
-
       format_on_save = {
         lsp_fallback = true,
         async = false,
@@ -55,4 +40,3 @@ return {
     end, { desc = "Format file or range (in visual mode)" })
   end,
 }
-

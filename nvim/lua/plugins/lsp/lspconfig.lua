@@ -1,33 +1,29 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" }, -- lazy loading
   dependencies = {
     -- Va permettre de remplir le plugin de complétion automatique nvim-cmp
     -- avec les résultats des LSP
     "hrsh7th/cmp-nvim-lsp",
-    -- Ajoute les « code actions » de type renommage de fichiers intelligent, etc
-    { "antosha417/nvim-lsp-file-operations", config = true },
-    -- Utile pour éditer les fichiers lua spécifiques à la config neovim
-    -- Notamment pour éviter le "Undefined global `vim`"
+    { "antosha417/nvim-lsp-file-operations", config = true }, -- Ajoute des opérations intelligentes sur les fichiers avec le LSP
     { "folke/lazydev.nvim", opts = {} },
   },
   keys = {
-    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
-    { "gR", "<cmd>Telescope lsp_references<CR>", desc = "Show LSP references", mode = "n" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } }, -- leader + ca
+    { "gR", "<cmd>Telescope lsp_references<CR>", desc = "Show LSP references", mode = "n" }, -- affiche toutes les références du symbole sous le curseur avec Telescope.
     { "gD", vim.lsp.buf.declaration, desc = "Go to declaration", mode = "n" },
     { "gd", "<cmd>Telescope lsp_definitions<CR>", desc = "Show LSP definitions", mode = "n" },
-    { "gi", "<cmd>Telescope lsp_implementations<CR>", desc = "Show LSP implementations", mode = "n" },
-    { "gt", "<cmd>Telescope lsp_type_definitions<CR>", desc = "Show LSP type definitions", mode = "n" },
+    { "gi", "<cmd>Telescope lsp_implementations<CR>", desc = "Show LSP definitions", mode = "n" },
+    { "gt", "<cmd>Telescope lsp_type_definitions<CR>", desc = "Show LSP types definitions", mode = "n" },
     { "gs", vim.lsp.buf.signature_help, desc = "Show LSP signature help", mode = "n" },
     { "<leader>rn", vim.lsp.buf.rename, desc = "Smart rename", mode = "n" },
-    { "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "Show buffer diagnostics", mode = "n" },
     { "<leader>d", vim.diagnostic.open_float, desc = "Show line diagnostics", mode = "n" },
     {
       "[d",
       function()
         vim.diagnostic.jump({ count = -1, float = true })
       end,
-      desc = "Go to previous diagnostic",
+      desc = "Go to the previous diagnostic",
       mode = "n",
     },
     {
@@ -35,15 +31,15 @@ return {
       function()
         vim.diagnostic.jump({ count = 1, float = true })
       end,
-      desc = "Go to next diagnostic",
+      desc = "Go to the next diagnostic",
       mode = "n",
     },
     { "K", vim.lsp.buf.hover, desc = "Show documentation for what is under cursor", mode = "n" },
     { "<leader>F", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format buffer", mode = { "n", "x" } },
-    { "<leader>rs", ":LspRestart<CR>", desc = "Restart LSP", mode = "n" },
+    { "<leader>rs", ":LspRestart<CR>", desc = "Restart lsp", mode = "n" },
   },
   config = function()
-    -- Customize error signs
+    -- customize error signs
     vim.diagnostic.config({
       signs = {
         text = {
@@ -122,4 +118,3 @@ return {
     })
   end,
 }
-
