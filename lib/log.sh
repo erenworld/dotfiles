@@ -4,7 +4,7 @@
 #
 
 # Colors (with TTY detection for fallback)
-if [[ -t 1Â ]]; then
+if [[ -t 1Â ]]; then
   _LOG_GREEN='\033[32m'
   _LOG_RED='\033[31m'
   _LOG_YELLOW='\033[33m'
