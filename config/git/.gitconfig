@@ -1,0 +1,37 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Eren Turkoglu
+	email = erenxturkoglu@gmail.com
+	signingkey = 8E3A8A037A50AC64
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgsign = true
+[core]
+	editor = nvim
+[push]
+	autoSetupRemote = true
+[alias]
+	br = branch
+	cm = commit -m
+	cma = commit -am
+	cmaa = commit --amend
+	co = "!co() { git checkout $1 || git checkout eren/$1;}; co"
+	cob = "!cob() { git checkout -b eren/$1;}; cob"
+	last = log -1 HEAD
+	oneline = log --oneline
+	oops = reset --hard HEAD^
+	psh = push
+	rs = restore --source=main
+	st = status
+	update = "!update() { git fetch -p && git merge origin/main;}; update"
+	wip = commit -am wip --no-verify
+	uncommit = reset HEAD^
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[include]
+	path = ~/.gitconfig.local
