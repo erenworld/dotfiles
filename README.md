@@ -5,7 +5,7 @@ Home is where this repo is cloned & installed.
 ## Quick Start
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/hiradp/home/main/bin/bootstrap | bash
+curl -fsSL https://raw.githubusercontent.com/erenworld/home/main/bin/bootstrap | bash
 ```
 
 ## Usage
